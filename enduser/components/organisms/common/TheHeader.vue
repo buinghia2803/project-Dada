@@ -1,0 +1,198 @@
+<template>
+    <div class="_header">
+        <div class="__logo">
+            <a href="/">
+                <img src="~/assets/images/logo.png" alt="logo"/>
+            </a>
+        </div>
+        <div class="__option">
+            <div v-if="isLogin && typeRole === 'ROLE_ART'" @click="clickSwitchAccount(type_dad)"
+                 class="__switch_account_dad mr-2 role-btn icon-svg">
+                <svg width="41" height="32" viewBox="0 0 41 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.6348 22H29.5391L29.5586 19.7148H32.6348C33.403 19.7148 34.0508 19.5423 34.5781 19.1973C35.1055 18.8457 35.5026 18.3346 35.7695 17.6641C36.043 16.9935 36.1797 16.1829 36.1797 15.2324V14.5391C36.1797 13.8099 36.1016 13.1686 35.9453 12.6152C35.7956 12.0618 35.571 11.5964 35.2715 11.2188C34.972 10.8411 34.6042 10.5579 34.168 10.3691C33.7318 10.1738 33.2305 10.0762 32.6641 10.0762H29.4805V7.78125H32.6641C33.6146 7.78125 34.4837 7.94401 35.2715 8.26953C36.0658 8.58854 36.7526 9.04753 37.332 9.64648C37.9115 10.2454 38.3574 10.9616 38.6699 11.7949C38.9889 12.6217 39.1484 13.543 39.1484 14.5586V15.2324C39.1484 16.2415 38.9889 17.1628 38.6699 17.9961C38.3574 18.8294 37.9115 19.5456 37.332 20.1445C36.7591 20.737 36.0723 21.196 35.2715 21.5215C34.4772 21.8405 33.5983 22 32.6348 22ZM31.1992 7.78125V22H28.2695V7.78125H31.1992Z"
+                        fill="black"/>
+                    <path
+                        d="M14.9355 4.74902L12.2285 13H10.0479L13.7461 3.04688H15.1338L14.9355 4.74902ZM17.1846 13L14.4707 4.74902L14.252 3.04688H15.6533L19.3721 13H17.1846ZM17.0615 9.29492V10.9014H11.8047V9.29492H17.0615Z"
+                        fill="black"/>
+                    <path
+                        d="M14.625 12L25.875 20L14.625 28V23C8.41162 23 3.375 18.523 3.375 13C3.375 12.727 3.38625 12.457 3.411 12.19C5.1075 15.05 8.48475 17 12.375 17H14.625V12Z"
+                        fill="black"/>
+                </svg>
+            </div>
+            <div v-if="isLogin && typeRole === 'ROLE_DAD'" @click="clickSwitchAccount(type_artist)"
+                 class="__switch_account_artist mr-2 role-btn icon-svg">
+                <svg width="41" height="32" viewBox="0 0 41 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M13.9443 13H11.7773L11.791 11.4004H13.9443C14.4821 11.4004 14.9355 11.2796 15.3047 11.0381C15.6738 10.792 15.9518 10.4342 16.1387 9.96484C16.3301 9.49544 16.4258 8.92806 16.4258 8.2627V7.77734C16.4258 7.26693 16.3711 6.81803 16.2617 6.43066C16.1569 6.04329 15.9997 5.71745 15.79 5.45312C15.5804 5.1888 15.3229 4.99056 15.0176 4.8584C14.7122 4.72168 14.3613 4.65332 13.9648 4.65332H11.7363V3.04688H13.9648C14.6302 3.04688 15.2386 3.16081 15.79 3.38867C16.346 3.61198 16.8268 3.93327 17.2324 4.35254C17.638 4.77181 17.9502 5.27311 18.1689 5.85645C18.3923 6.43522 18.5039 7.08008 18.5039 7.79102V8.2627C18.5039 8.96908 18.3923 9.61393 18.1689 10.1973C17.9502 10.7806 17.638 11.2819 17.2324 11.7012C16.8314 12.1159 16.3506 12.4372 15.79 12.665C15.234 12.8883 14.6188 13 13.9443 13ZM12.9395 3.04688V13H10.8887V3.04688H12.9395Z"
+                        fill="black"/>
+                    <path
+                        d="M34.0508 10.2129L30.1836 22H27.0684L32.3516 7.78125H34.334L34.0508 10.2129ZM37.2637 22L33.3867 10.2129L33.0742 7.78125H35.0762L40.3887 22H37.2637ZM37.0879 16.707V19.002H29.5781V16.707H37.0879Z"
+                        fill="black"/>
+                    <path
+                        d="M14.625 12L25.875 20L14.625 28V23C8.41162 23 3.375 18.523 3.375 13C3.375 12.727 3.38625 12.457 3.411 12.19C5.1075 15.05 8.48475 17 12.375 17H14.625V12Z"
+                        fill="black"/>
+                </svg>
+            </div>
+
+            <div v-if="isLogin" :class="[
+                '__bell_notifications mr-2 role-btn icon-svg',
+                { 'notify-off': setting && setting.status },
+            ]" @click="() => this.$router.push({ path: '/mypage/news' })">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M20 17H22V19H2V17H4V10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10V17ZM18 17V10C18 8.4087 17.3679 6.88258 16.2426 5.75736C15.1174 4.63214 13.5913 4 12 4C10.4087 4 8.88258 4.63214 7.75736 5.75736C6.63214 6.88258 6 8.4087 6 10V17H18ZM9 21H15V23H9V21Z"
+                        fill="black"/>
+                    <circle v-if="!setting.status && setting.noti" cx="18" cy="5" r="5" fill="#FF3333"/>
+                </svg>
+            </div>
+
+            <div @click="() => (visibleHelp = true)" class="__question_mark mr-2 role-btn icon-svg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM12 20C14.1217 20 16.1566 19.1571 17.6569 17.6569C19.1571 16.1566 20 14.1217 20 12C20 9.87827 19.1571 7.84344 17.6569 6.34315C16.1566 4.84285 14.1217 4 12 4C9.87827 4 7.84344 4.84285 6.34315 6.34315C4.84285 7.84344 4 9.87827 4 12C4 14.1217 4.84285 16.1566 6.34315 17.6569C7.84344 19.1571 9.87827 20 12 20ZM11 15H13V17H11V15ZM13 13.355V14H11V12.5C11 12.2348 11.1054 11.9804 11.2929 11.7929C11.4804 11.6054 11.7348 11.5 12 11.5C12.2841 11.5 12.5623 11.4193 12.8023 11.2673C13.0423 11.1154 13.2343 10.8984 13.3558 10.6416C13.4773 10.3848 13.5234 10.0988 13.4887 9.81684C13.454 9.53489 13.34 9.26858 13.1598 9.04891C12.9797 8.82924 12.7409 8.66523 12.4712 8.57597C12.2015 8.48671 11.912 8.47587 11.6364 8.54471C11.3608 8.61354 11.1104 8.75923 10.9144 8.96482C10.7183 9.1704 10.5847 9.42743 10.529 9.706L8.567 9.313C8.68863 8.70508 8.96951 8.14037 9.38092 7.67659C9.79233 7.2128 10.3195 6.86658 10.9086 6.67332C11.4977 6.48006 12.1275 6.44669 12.7337 6.57661C13.3399 6.70654 13.9007 6.99511 14.3588 7.41282C14.8169 7.83054 15.1559 8.36241 15.3411 8.95406C15.5263 9.54572 15.5511 10.1759 15.4129 10.7803C15.2747 11.3847 14.9785 11.9415 14.5545 12.3939C14.1306 12.8462 13.5941 13.1779 13 13.355Z"
+                        fill="black"/>
+                </svg>
+            </div>
+            <div @click="() => (visibleTopMenu = true)" class="__top_menu_sp role-btn icon-svg">
+                <svg width="31" height="11" viewBox="0 0 31 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 1H31" stroke="black" stroke-width="2"/>
+                    <path d="M0 9.26758H31" stroke="black" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+        <!-- Start menu top in sp -->
+        <MenuTopSp :visibleTopMenu="visibleTopMenu" @visibleSpChange="funcVisibleSpChange"/>
+        <!-- End menu top in sp -->
+
+        <!-- Start my page help menu -->
+        <HelpMenu :visibleHelp="visibleHelp" @visibleHelpChange="funcVisibleHelpChange"/>
+        <!-- End my page help menu -->
+    </div>
+</template>
+
+<script>
+import {mapActions, mapState} from "vuex";
+import role from "@/mixins/role";
+import {TYPE_ARTIST_ROLE, TYPE_DAD_ROLE} from "@/utils/constants";
+
+export default {
+    name: "TheHeader",
+    components: {
+        HelpMenu: () => import("~/components/custom/common/HelpMenu.vue"),
+        MenuTopSp: () => import("~/components/custom/common/MenuTopSp.vue"),
+    },
+    mixins: [
+        role
+    ],
+    data() {
+        return {
+            visibleTopMenu: false,
+            visibleHelp: false,
+            changeAccount: false,
+            type_dad: TYPE_DAD_ROLE,
+            type_artist: TYPE_ARTIST_ROLE,
+            form: {},
+            dataSetting: {},
+            activeNofi: false,
+            totalNoti: 0,
+        };
+    },
+    computed: {
+        ...mapState({ setting: state => {
+            return state['setting-user'].setting
+            }}),
+        /**
+         * Check Login
+         *
+         */
+        isLogin() {
+            // Todo check login
+            return this.$auth.loggedIn;
+        },
+        typeRole() {
+            if (!this.isLogin || !this.$auth.user || !this.$auth.user.type) {
+                return ''
+            }
+
+            switch (+this.$auth.user.type) {
+                case this.type_dad:
+                    return 'ROLE_DAD'
+                case this.type_artist:
+                    return 'ROLE_ART'
+
+            }
+            return ""
+
+        },
+        /**
+         * Check All Setting Notify
+         *
+         */
+        checkAllSettingNotify() {
+            // TODO check has off setting of notify
+            return false;
+        },
+        /**
+         * Check All Has Notify
+         *
+         */
+        hasNotify() {
+            if (this.checkAllSettingNotify) {
+                // TODO check has off setting of notify
+                return true;
+            }
+
+            return true;
+        },
+    },
+    mounted() {
+        if (this.isLogin) {
+            this.getDataSetting();
+        }
+    },
+    methods: {
+        ...mapActions({
+            actionUpdateType: "user/actionUpdateType",
+            getNotificationByUser: "setting-user/getNotificationByUser",
+        }),
+        /**
+         * Switch account artist or Dad
+         */
+        async clickSwitchAccount(type) {
+            await this.switchAccount(type)
+            await this.$forceUpdate()
+        },
+        funcVisibleHelpChange(payload) {
+            this.visibleHelp = false;
+        },
+        funcVisibleSpChange(payload) {
+            this.visibleTopMenu = false;
+        },
+        /**
+         * Get Data Setting
+         */
+        getDataSetting() {
+            this.getNotificationByUser().then(({data}) => {
+                if (data) {
+                    this.activeNofi = data.status;
+                    this.totalNoti = data.noti;
+                }
+            });
+        },
+    },
+};
+</script>
+<style lang="less" scoped>
+.notify-off {
+    svg path {
+        fill: #cdcdcd;
+    }
+}
+
+@media (min-width: 567px) {
+    .__top_menu_sp {
+        display: none;
+    }
+}
+</style>

@@ -1,0 +1,72 @@
+{
+    "name": "ant-design-nuxt-pro",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "nuxt",
+        "build": "node --max-old-space-size=5120 node_modules/nuxt/bin/nuxt.js build --no-legacy",
+        "analyze": "nuxt build --analyze",
+        "start": "nuxt start",
+        "generate": "nuxt generate",
+        "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+        "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
+        "lint": "yarn lint:js && yarn lint:style"
+    },
+    "lint-staged": {
+        "*.{js,vue}": "eslint",
+        "*.{css,vue}": "stylelint"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "lint-staged"
+        }
+    },
+    "dependencies": {
+        "@blowstack/ckeditor-nuxt": "^0.6.0",
+        "@nuxtjs/auth": "^4.9.1",
+        "@nuxtjs/axios": "^5.12.2",
+        "@nuxtjs/dotenv": "^1.4.1",
+        "@nuxtjs/i18n": "^7.2.2",
+        "@nuxtjs/pwa": "^3.3.5",
+        "@nuxtjs/style-resources": "^1.2.1",
+        "ant-design-vue": "^1.6.5",
+        "core-js": "^3.6.5",
+        "@nuxtjs/eslint-module": "^2.0.0",
+        "nuxt": "^2.14.6",
+        "vee-validate": "^3.4.14",
+        "vue-toastification": "^1.7.14"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.10.0",
+        "eslint-plugin-nuxt": "^0.4.3",
+        "eslint-plugin-vue": "^6.2.2",
+        "less": "^3.12.2",
+        "less-loader": "^7.0.2",
+        "lint-staged": "^10.4.0",
+        "prettier": "^1.19.1"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "parserOptions": {
+            "parser": "babel-eslint"
+        },
+        "rules": {}
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ],
+    "rules": {
+        "no-unused-vars": "off"
+    }
+}

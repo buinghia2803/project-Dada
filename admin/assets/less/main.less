@@ -1,0 +1,192 @@
+@import "button.less";
+@import "variables.less";
+
+body {
+    font-family: @font-japanese;
+    //background-color: @base-color;
+    color: black;
+}
+
+.ant-layout-header {
+    height: auto;
+    line-height: normal;
+}
+
+.ant-layout-content {
+    background-color: @base-color;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Style for header PC and SP.
+|--------------------------------------------------------------------------
+*/
+.main-header {
+    background-color: @base-color;
+
+    ._header {
+        display: flex;
+        justify-content: space-between;
+
+        .__question_mark {
+            svg {
+                font-size: @fsj-h2-pc;
+                height: 24px;
+                width: 24px;
+            }
+        }
+    }
+}
+
+@media @mobile {
+    .main-header {
+        padding: 0px 16px;
+
+        ._header {
+            margin-top: 18px;
+
+            .__option {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .__question_mark {
+                display: none;
+            }
+
+            .__logo {
+                img {
+                    height: 24px;
+                }
+            }
+        }
+    }
+}
+
+@media @desktop {
+    .main-header {
+        ._header {
+            margin-top: 23px;
+
+            .__option {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .__logo {
+                img {
+                    height: 54px;
+                }
+            }
+
+            .__top_menu_sp {
+                display: none;
+            }
+        }
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Style for footer PC and SP.
+|--------------------------------------------------------------------------
+*/
+@media @mobile {
+    .main-footer {
+        font-size: @caption-ja-sp-small;
+        background-color: @main-color;
+        color: @base-color;
+        padding: 0;
+        width: 100%;
+
+        .footer_wrapper {
+            padding: 39px 20px 39px 12px;
+            display: flex;
+            justify-content: space-between;
+            // height: 271px;
+            .footer-content {
+                &__left {
+                    .f-item {
+                        margin-top: 7px;
+                        height: 14px;
+                    }
+                }
+
+                &__right {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    .f-item {
+                        margin-top: 7px;
+                        height: 14px;
+                    }
+
+                    .f-image-copy-right {
+                        img {
+                            height: 24px;
+                        }
+
+                        .copy-right {
+                            margin-top: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media @desktop {
+    // body {
+    //     font-family: @font-english;
+    // }
+    .main-footer {
+        font-size: @txj-pc-standard;
+        background-color: @main-color;
+        color: @base-color;
+        padding: 0;
+        width: 100%;
+
+        .footer_wrapper {
+            padding: 70px 130px 68px 140px;
+            display: flex;
+            justify-content: space-between;
+            // height: 463px;
+            .footer-content {
+                &__left {
+                    .f-item {
+                        margin-top: 1rem;
+                        height: 24px;
+                    }
+                }
+
+                &__right {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    .f-item {
+                        margin-top: 1rem;
+                        height: 24px;
+                    }
+
+                    .f-image-copy-right {
+                        img {
+                            background-image: url("~/assets/images/logo.png");
+                            height: 80px;
+                        }
+
+                        .copy-right {
+                            margin-top: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

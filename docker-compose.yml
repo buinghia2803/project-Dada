@@ -1,0 +1,94 @@
+version: '3.5'
+services:
+  app:
+    build: ./docker/php-fpm
+    container_name: base-api
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    volumes:
+        - ${API_FOLDER}:/var/www
+    networks:
+      - app-network
+  web:
+    build: ./docker/vuejs
+    container_name: base-web-admin
+    tty: true
+    restart: always
+    environment:
+        - NODE_ENV=dev
+        - HOST=0.0.0.0
+        - PORT=3000
+    volumes:
+      - ${FRONT_FOLDER}:/app
+    ports:
+      - 3000:3000
+    command: /bin/sh -c "yarn && yarn dev"
+    networks:
+      - app-network
+  enduser:
+    build: ./docker/nuxt
+    container_name: website
+    tty: true
+    restart: always
+    environment:
+        - HOST=0.0.0.0
+        - PORT=9089
+    volumes:
+      - ${FRONT_FOLDER_ENDUSER}:/www/html
+    ports:
+      - 9089:9089
+    command: /bin/sh -c "yarn && yarn dev"
+    networks:
+      - app-network
+  db:
+    image: mysql:8.0
+    container_name: mysql-server
+    restart: always
+    tty: true
+    command: --init-file /data/application/init.sql
+    volumes:
+      - ./docker/mysql/init.sql:/data/application/init.sql
+      - mysqldata:/var/lib/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3306:3306
+    networks:
+      - app-network
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: base-pma
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8183:80
+    networks:
+      - app-network
+  nginx:
+    image: nginx:alpine
+    container_name: php-nginx
+    environment:
+      HOST: 0.0.0.0
+    ports:
+      - 80:80
+    volumes:
+      - ${API_FOLDER}/:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app-network
+    depends_on:
+      - app
+#Volumes
+volumes:
+  mysqldata:
+    driver: ${VOLUMES_DRIVER}
+networks:
+  app-network:
+    driver: ${NETWORKS_DRIVER}

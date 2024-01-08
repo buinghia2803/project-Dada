@@ -1,0 +1,43 @@
+.env
+yarn.lock
+
+# System Files
+.DS_Store
+Thumbs.db
+
+
+# IDEs and editors
+/.history
+adminer.php
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+!.gitkeep
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+node_modules
+
+ecosystem.config.js
+*_.nuxt.bk
+*.nuxt.bk
+*_.nuxt.zip
+*.nuxt.zip
+.env.development
+.env.production
+.env.local

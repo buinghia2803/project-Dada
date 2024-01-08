@@ -1,0 +1,390 @@
+.text-white {
+    color: white;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.d-block {
+    display: block !important
+}
+
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+.bg-black {
+    background: black !important;
+}
+
+.decoration-under {
+    text-decoration: underline;
+}
+
+.align-item-baseline {
+    align-items: baseline;
+}
+
+.role-btn {
+    cursor: pointer;
+}
+
+.wallet-color {
+    color: #0000E6;
+}
+
+
+.text-align-justify {
+    text-align: justify;
+}
+
+.bg-green-txt-white {
+    background: #00E600 !important;
+    border-color: #00E600;
+
+    span {
+        color: white;
+    }
+
+    &:hover {
+        background: #00E600 !important;
+        opacity: 0.9;
+    }
+}
+
+.bg-discard-txt-gray {
+    background: #EFEFEF !important;
+    border-color: #EFEFEF;
+
+    span {
+        color: #b3b3b3 !important;
+    }
+
+    &:hover {
+        background: #EFEFEF !important;
+        opacity: 0.9;
+    }
+}
+
+.bg-cancel-txt-white {
+    background: red !important;
+    border-color: red;
+
+    span {
+        color: white !important;
+    }
+
+    &:hover {
+        background: red !important;
+        opacity: 0.9;
+    }
+}
+
+.ant-btn-bg-cwhite {
+    background: black;
+    color: white;
+
+    &:hover {
+        background: black;
+        border: 1px solid black;
+    }
+}
+
+.layout-header {
+    ._header {
+        display: flex;
+
+        .__logo {
+            width: 100%;
+            margin: 23px 0 0 20px;
+
+            a img {
+                height: 37px;
+            }
+        }
+
+        .__option {
+            display: flex;
+            margin-top: 1.7rem;
+        }
+    }
+}
+
+.d-container {
+    .icon-svg {
+        svg {
+            height: 32px;
+        }
+    }
+}
+
+
+.d-wrapper-main {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.ant-btn-bwhite-cblack {
+    border: 1px solid black;
+
+    &:hover {
+        background: white;
+        border: 1px solid black;
+    }
+}
+
+.box-head-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    h3 {
+        text-align: center;
+        font-weight: bold;
+        font-size: 32px;
+    }
+
+    .first-child {
+        margin-left: 16px;
+    }
+
+    .last-child {
+        margin-right: 16px;
+    }
+}
+
+hr.line-title {
+    border-bottom: 1px solid black;
+    width: 32px;
+}
+
+.box-head-action-left {
+    display: flex;
+    justify-content: left;
+
+    .f-left {
+        margin-left: 16px;
+    }
+}
+
+.box-guideline-change,
+.box-guideline-notify {
+    top: 65px;
+    //transform: translateX(-100%);
+    //right: -60%;
+    right: -25%;
+
+    .ant-modal-body {
+        padding: 16px;
+    }
+}
+
+.box-modal-template,
+.box-not-enough,
+.box-upload-work,
+.box-cancel-contract,
+.box-guideline-change,
+.box-guideline-notify {
+    .ant-modal-close {
+        border-radius: 50%;
+        background: black;
+        color: white;
+        top: -7px;
+        right: -6px;
+
+        span {
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+        }
+    }
+}
+
+.box-guideline-change {
+    .ant-modal-body {
+        padding: 16px;
+
+        .box-guideline-change-role {
+            margin-top: 20px;
+
+            .icon-change {
+                justify-content: center;
+                margin: 5px auto;
+
+                svg {
+                    margin: 5px 10px;
+                }
+            }
+
+            .content-guide {
+                padding: 5px 30px;
+                font-weight: 500;
+                font-size: 16px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.label-bold .ant-form-item-label>label {
+    font-weight: bold !important;
+}
+
+.d-edit-profile-form {
+    .ant-form-item {
+        display: flex;
+
+        .ant-form-item-control-wrapper {
+            color: red;
+            width: calc(100% - 80px);
+
+        }
+    }
+}
+
+.box-edit-profile{
+    margin-top: -60px;
+}
+
+.d-table-custom-user {
+    .ant-table-scroll>.ant-table-body {
+        //overflow-x: auto !important;
+    }
+
+    table {
+        .ant-table-thead {
+            th {
+                border-bottom: 1px solid rgba(205, 205, 205, 1);
+                border-top: 1px solid rgba(205, 205, 205, 1);
+
+                &:hover {}
+            }
+        }
+    }
+}
+
+.ant-table-empty {
+    .ant-table-placeholder {
+        color: #0c0c0ca6;
+    }
+}
+
+.d-item-link-hover:hover {
+    color: @btnHover  !important;
+}
+
+@media (min-width: 1280px) {
+    .d-container {
+        width: 1280px;
+        margin: 0 auto;
+        padding: 0 0;
+    }
+
+    .d-content {
+        padding: 0 127px;
+    }
+
+}
+@media (max-width: 577px){
+    .d-edit-profile-form{
+        .ant-form-item-label {
+            width: 80px;
+            margin-top: 12px;
+        }
+    }
+}
+
+@media (max-width: 567px) {
+    .layout-header {
+        ._header {
+            .__logo {
+                margin: 8px 0 0 8px;
+
+                a img {
+                    height: 32px;
+                }
+            }
+
+            .__option {
+                margin-top: 0.7rem;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .d-container {
+        .icon-svg {
+            svg {
+                height: 24px;
+            }
+        }
+    }
+
+    .box-head-action {
+        margin-top: 12px;
+
+        h3 {
+            font-size: 24px;
+        }
+
+        .first-child {
+            margin-left: 8px;
+        }
+
+        .last-child {
+            margin-right: 8px;
+        }
+    }
+}
+
+@media (max-width: 315px) {
+    .box-head-action {
+        margin-top: 8px;
+
+        h3 {
+            font-size: 20px;
+        }
+
+        .first-child {
+            margin-left: 5px;
+        }
+
+        .last-child {
+            margin-right: 5px;
+        }
+    }
+}

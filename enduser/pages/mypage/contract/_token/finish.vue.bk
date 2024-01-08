@@ -1,0 +1,30 @@
+<template>
+    <div class="main-contract-finish">
+        <div class="warp-contract-finish">
+            <h3>契約内容がDadに送信されました</h3>
+            <p class="mb-0 mt-6">Dadが契約内容を</p>
+            <p class="mb-8"> 確認するまでお待ちください</p>
+            <p class="role-btn decoration-under r2-mypage" @click="r2Mypage">myページへ</p>
+        </div>
+    </div>
+</template>
+
+<script>
+
+export default {
+    layout: "main",
+    components: {},
+    data() {
+        return {};
+    },
+    methods: {
+        r2Mypage() {
+            this.$router.push({path: '/mypage'})
+        }
+    }
+};
+</script>
+
+<style lang="less" src="../../../../assets/less/user/contract-finish.less"></style>
+
+

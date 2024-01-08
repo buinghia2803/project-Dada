@@ -1,0 +1,273 @@
+#user  nobody;
+worker_processes  1;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+	#gzip
+    gzip                                  on;
+    gzip_disable                          "msie6";
+    gzip_comp_level                       6;
+    #gzip_min_length                      1100;
+    gzip_buffers                          16 8k;
+    gzip_proxied                          any;
+    gzip_types                            text/plain text/css text/js text/xml text/javascript application/javascript application/json application/xml application/rss+xml image/svg+xml;
+
+	# brotli
+	#brotli on;
+	#brotli_comp_level 6;
+	#brotli_static       on;
+	#brotli_types text/xml image/svg+xml application/x-font-ttf image/vnd.microsoft.icon application/x-font-opentype application/json font/eot application/vnd.ms-fontobject application/javascript font/otf application/xml application/xhtml+xml text/javascript  application/x-javascript text/plain application/x-font-truetype application/xml+rss image/x-icon font/opentype text/css image/x-win-bitmap;
+
+
+    upstream backend {
+        server localhost:8000;
+    }
+    upstream frontend_admin {
+        server localhost:3000;
+    }
+    upstream frontend_nuxt {
+        server localhost:9089;
+    }
+
+    server {
+        listen              80;
+		client_max_body_size 300M;
+        server_name         localhost;
+		add_header          'Access-Control-Allow-Origin' '*';
+	    add_header          'Access-Control-Allow-Credentials' 'true';
+      	add_header          'Access-Control-Allow-Headers' 'Authorization,Accept,Origin,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+	    add_header          'Access-Control-Allow-Methods' 'GET,POST,OPTIONS,PUT,DELETE,PATCH';
+
+        proxy_http_version  1.1;
+        proxy_set_header    Upgrade $http_upgrade;
+        proxy_set_header    Connection 'upgrade';
+        proxy_set_header    Host $host;
+        proxy_cache_bypass  $http_upgrade;
+
+        location ^~/_admin{
+			#proxy_pass         http://localhost:3000;
+			proxy_pass         http://frontend_admin;
+			proxy_set_header   X-Real-IP $remote_addr;
+			add_header         'Access-Control-Allow-Origin' '*';
+			types              {font/opentype otf;}
+		    types              {application/vnd.ms-fontobject eot;}
+		    types              {font/truetype ttf;}
+		    types              {application/font-woff woff;}
+		    types              {font/x-woff woff2;}
+		}
+
+		location ^~/_nuxt {
+			#proxy_pass         http://localhost:3000;
+			proxy_pass         http://frontend_nuxt;
+			proxy_set_header   X-Real-IP $remote_addr;
+			add_header         'Access-Control-Allow-Origin' '*';
+			expires            30d;
+			access_log 		   off;
+			add_header         Cache-Control "max-age=31556952, public, no-transform";
+			etag 			   on; # Enable cache Etag
+			types              {font/opentype otf;}
+		    types              {application/vnd.ms-fontobject eot;}
+		    types              {font/truetype ttf;}
+		    types              {application/font-woff woff;}
+		    types              {font/x-woff woff2;}
+		}
+
+
+		location ^~/admin {
+			proxy_pass         http://frontend_admin;
+			#proxy_pass         http://localhost:8000;
+			proxy_set_header   X-Real-IP $remote_addr;
+			add_header         'Access-Control-Allow-Origin' '*';
+
+			proxy_redirect      off;
+			proxy_set_header    host $host;
+			proxy_set_header    X-real-ip $remote_addr;
+			proxy_set_header    X-forward-for $proxy_add_x_forwarded_for;
+		}
+
+		#location /images/logo.svg {
+		#	proxy_set_header   X-Real-IP $remote_addr;
+		#	add_header         Cache-Control "max-age=31556952,public, no-transform";
+		#	expires            30d;
+
+		#	proxy_pass         http://localhost:8000;
+		#}
+
+		#location ~ ^/(app/|images/|img/|javascript/|js/|css/|dist/|media/|static/|robots.txt|humans.txt|favicon.ico) {
+            #root 			   /var/www/test/main;
+            #root 			   /var/www/test/main;
+            #access_log 	   off;
+            #expires		   max;
+			#proxy_pass        http://localhost:3000;
+        #}
+
+		location / {
+			proxy_pass         http://frontend_nuxt;
+			#proxy_pass         http://localhost:3000;
+			proxy_set_header   X-Real-IP $remote_addr;
+			add_header         'Access-Control-Allow-Origin' '*';
+
+			proxy_redirect     off;
+			proxy_set_header   host $host;
+			proxy_set_header   X-real-ip $remote_addr;
+			proxy_set_header   X-forward-for $proxy_add_x_forwarded_for;
+		}
+
+		location /api {
+			proxy_pass         http://backend;
+			#proxy_pass         http://localhost:8000;
+			proxy_set_header   X-Real-IP $remote_addr;
+			add_header 'Access-Control-Allow-Origin' '*';
+
+
+			proxy_redirect off;
+			proxy_set_header    host $host;
+			proxy_set_header    X-real-ip $remote_addr;
+			proxy_set_header    X-forward-for $proxy_add_x_forwarded_for;
+			etag                on;
+		}
+
+		#location /upload.php {
+            #proxy_pass         http://localhost:8000;
+            #proxy_set_header   X-Real-IP $remote_addr;
+            #add_header          'Access-Control-Allow-Origin' '*';
+
+            #proxy_redirect      off;
+            #proxy_set_header    host $host;
+            #proxy_set_header    X-real-ip $remote_addr;
+            #proxy_set_header    X-forward-for $proxy_add_x_forwarded_for;
+        #}
+
+		#location ~ ^/server/(uploads/|app/|images/|img/|javascript/|js/|css/|dist/|media/|static/|robots.txt|humans.txt|favicon.ico) {
+        #    #root 				/var/www/test/admin;
+
+		 #   root 				D:/Project/Relipa/D1/nohara/src/public;
+		#	#proxy_pass         http://localhost:8000;
+        #    access_log 			off;
+        #   expires 			max;
+		#	add_header         Cache-Control "max-age=31556952, public, no-transform";
+        #}
+
+		#location ~ ^/uploads {
+            #root 				/var/www/test/admin;
+
+		#    root 				D:/Project/Relipa/D1/nohara/src/public;
+			#proxy_pass         http://localhost:8000;
+        #    access_log 			off;
+        #    expires 			max;
+		#	add_header         Cache-Control "max-age=31556952, public, no-transform";
+        #}
+
+
+		#location ~* \.(?:css|js)$ {
+		#	proxy_pass         http://localhost:8000;
+		#	proxy_set_header   X-Real-IP $remote_addr;
+		#	add_header         Cache-Control "public";
+		#	etag 			   on; #
+		#}
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        #location / {
+          #  root   html;
+         #   index  index.html index.htm;
+        #}
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+    #
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+}

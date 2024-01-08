@@ -1,0 +1,120 @@
+
+/*
+|--------------------------------------------------------------------------
+| Spacing for margin and padding.
+| Generate class margin from m-1 -> m-12, mt-1 -> mt-12,...
+| Generate class padding from p-1 -> p-12, pt-1 -> pt-12,...
+|--------------------------------------------------------------------------
+*/
+each(range(1px, 12px, 1), {
+  /*
+  |--------------------------------------------------------------------------
+  | Spacing padding.
+  |--------------------------------------------------------------------------
+  */
+  .p-@{index} {
+    padding: @value * 8 !important;
+  }
+  .pt-@{index} {
+    padding-top: @value * 8 !important;
+  }
+  .pl-@{index} {
+    padding-left: @value * 8 !important;
+  }
+  .pb-@{index} {
+    padding-bottom: @value * 8 !important;
+  }
+  .pr-@{index} {
+    padding-right: @value * 8 !important;
+  }
+  .px-@{index} {
+    padding-left: @value * 8 !important;
+    padding-right: @value * 8 !important;
+  }
+
+  /*
+  |--------------------------------------------------------------------------
+  | Spacing margin.
+  |--------------------------------------------------------------------------
+  */
+  .m-@{index} {
+    margin: @value * 8 !important;
+  }
+  .mt-@{index} {
+    margin-top: @value * 8 !important;
+  }
+  .ml-@{index} {
+    margin-left: @value * 8 !important;
+  }
+  .mb-@{index} {
+    margin-bottom: @value * 8 !important;
+  }
+  .mr-@{index} {
+    margin-right: @value * 8 !important;
+  }
+  .mx-@{index} {
+    margin-left: @value * 8 !important;
+    margin-right: @value * 8 !important;
+  }
+});
+  /*
+  |--------------------------------------------------------------------------
+  | Spacing padding.
+  |--------------------------------------------------------------------------
+  */
+  .p-0 {
+    padding: 0 !important;
+  }
+  .pt-0 {
+    padding-top: 0 !important;
+  }
+  .pl-0 {
+    padding-left: 0 !important;
+  }
+  .pb-0 {
+    padding-bottom: 0 !important;
+  }
+  .pr-0 {
+    padding-right: 0 !important;
+  }
+  .px-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /*
+  |--------------------------------------------------------------------------
+  | Spacing margin.
+  |--------------------------------------------------------------------------
+  */
+  .m-0 {
+    margin: 0 !important;
+  }
+  .mt-0 {
+    margin-top: 0 !important;
+  }
+  .ml-0 {
+    margin-left: 0 !important;
+  }
+  .mb-0 {
+    margin-bottom: 0 !important;
+  }
+  .mr-0 {
+    margin-right: 0 !important;
+  }
+  .mx-0 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+
+/*
+|--------------------------------------------------------------------------
+| Spacing for content PC and SP.
+|--------------------------------------------------------------------------
+*/
+@margin-sp-x: 1rem; // 左右の余白_SP
+@margin-pc-x: 6rem; // 左右の余白_PC
+
+@margin-title-sp-x: 1rem; // タイトルの余白_SP
+@margin-title-pc-x: rem; // タイトルの余白_SP

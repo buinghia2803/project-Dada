@@ -1,0 +1,304 @@
+{
+    "navBar": {
+        "lang": "Language"
+    },
+    "layouts": {
+        "usermenu": {
+            "dialog": {
+                "title": "Log out",
+                "content": "Do you want log out"
+            }
+        },
+        "titleLogin": "Login"
+    },
+    "menu": {
+        "home": "Home",
+        "dashboard": {
+            "default": "Dashboard",
+            "welcome": "Welcome",
+            "workplace": "Workplace"
+        },
+        "form": {
+            "default": "Form",
+            "basicform": "Basic Form",
+            "stepform": "Step Form",
+            "advancedform": "Advanced Form"
+        },
+        "user": {
+            "default": "ユーザー管理",
+            "create": "新規登録"
+        },
+        "mail_template": {
+            "default": "テンプレートメール設定"
+        },
+        "setting": {
+            "default": "設定"
+        },
+        "notice": {
+            "default": "お知らせ管理"
+        },
+        "offer": {
+            "default": "オファー管理"
+        },
+        "contract": {
+            "default": "契約管理"
+        },
+        "role": {
+            "default": "Role"
+        },
+        "permission": {
+            "default": "Permission"
+        },
+        "nav1": "Nav 1",
+        "nav2": "Nav 2",
+        "nav3": "Nav 3",
+        "index": "index",
+        "destroy": "destroy",
+        "update": "update",
+        "show": "show"
+    },
+    "module": {
+        "mail_template": "テンプレメール設定",
+        "user": "ユーザー管理",
+        "notice": "システム通知管理",
+        "setting": "設定",
+        "offer": "オファー管理",
+        "contract": "契約管理"
+    },
+    "messages": {
+        "error": {
+            "failed_to_create": "{name}を作成できませんでした。",
+            "failed_to_update": "{name}を更新できませんでした。",
+            "failed_to_delete": "{name}を削除できませんでした。",
+            "failed_to_delete_user": "{name}は削除できませんでした。",
+            "failed_to_get": "{name}を取得できませんでした。",
+            "failed_to_login": "ログインに失敗しました。",
+            "unmatch_value": "一致するデータが見つかりません。",
+            "bad_email_format": "間違った形式を入力しました。",
+            "unmatch_confirmation_email": "{name}と一致しません。",
+            "unmatch_password": "パスワードが一致しません。",
+            "required": "必須項目に入力してください。",
+            "shortRequired": "入力必須です。",
+            "invalid_format": "無効な形式",
+            "numeric": "0〜100の数字を入力してください。",
+            "percent": "0〜100の数値を入力してください。(小数の場合、小数部は2文字以下です)",
+            "more_than": "{name}は{target}以上で入力してください。",
+            "less_than": "{name}は{target}以下で入力してください。",
+            "date_before": "{name}は{target}より前の日付を選択してください。",
+            "date_after": "{name}には開始日以降の日付を選択してください。",
+            "min_max": "{name}は{min}以上、{max}以内で入力してください。",
+            "min": "{name}は{min}字以上で入力してください。",
+            "max_length": "255文字以内で入力してください。",
+            "max": "{max}文字以内で入力してください。",
+            "color_hex": "無効な形式。",
+            "failed_to_sent_mail": "{name}メールを送信できませんでした。",
+            "validate_password": "大文字、小文字、数字を含める8文字以上32文字以内で入力して下さい。",
+            "invalid_url": "無効なURL。",
+            "invalid_url_youtube": "YouTube URLを入力してください。",
+            "invalid_image": "拡張子がjpg、jpeg、png、gifのファイルのみが受け入れられます。",
+            "max_file_size": "最大ファイル容量は1MBです。",
+            "invalid_range": "{name}は{range}桁で入力してください。",
+            "export_failed": "処理が失敗しました。",
+            "duplicate_code_product": "duplicate code product",
+            "selling_price": "0より大きい数値を入力してください。(小数の場合、小数部は5文字以下です)",
+            "approve_policy": "プライバシーポリシーと利用規約への同意が必要です。"
+        },
+        "confirmation": {
+            "delete": "削除しますか？",
+            "deleteMulti": "選択した項目を削除しますか？",
+            "confirm_reject": "差し戻しますか？"
+        },
+        "information": {
+            "created": "正常に作成されました。",
+            "updated": "正常に更新されました。",
+            "deleted": "正常に削除されました。",
+            "deleted_user": "{name}を削除しました。",
+            "login": "正常にログインしました。",
+            "sent_mail_success": "{name}メールを正常に送信しました。"
+        },
+        "warning": {
+            "no_file": "ファイルが選択されていません",
+            "no_title": "タイトルが入力されていません"
+        }
+    },
+    "pages": {
+        "dashboard": {
+            "welcome": {
+                "tips": "Welcome used Ant Design Vue",
+                "show-loading": "Show Loading",
+                "hide-loading": "Hide Loading"
+            }
+        },
+        "form": {
+            "basicform": {
+                "headers": {
+                    "btn1": "Button1",
+                    "customTitle": "Custom Page Title"
+                },
+                "content": "Form pages are used to collect or verify information to users, and basic forms are common in scenarios where there are fewer data items.",
+                "tabs": {
+                    "tab1": "Tab1",
+                    "tab2": "Tab2",
+                    "tab3": "Tab3"
+                }
+            }
+        },
+        "login": {
+            "email": "メールアドレス",
+            "account": "Account",
+            "password": "パスワード",
+            "forgot_password": "パスワードを忘れた方はこちら",
+            "auto_login": "Auto login",
+            "submit": "ログイン",
+            "send": "送信",
+            "change": "変更",
+            "choose_language": "Choose Language",
+            "help": "Help",
+            "terms": "Terms",
+            "privacy": "Privacy",
+            "login admin": "管理者ログイン",
+            "password confirmation": "パスワード（確認）"
+        },
+        "setting": {
+            "OpenSea": "OpenSea",
+            "DadA": "DadA"
+        },
+        "notice": {
+            "title": "タイトル*",
+            "content": "内容*",
+            "dad/artist": "Dad/Artistへ*",
+            "dad": "Dadへ",
+            "artist": "Artistへ",
+            "status": "状況*"
+        }
+    },
+    "rule": {
+        "required": "is required"
+    },
+    "common": {
+        "action": "",
+        "new": "Create",
+        "show_all": "Show All",
+        "create": "Create",
+        "edit": "Edit",
+        "delete": "Delete",
+        "cancel": "Cancel",
+        "clear": "Clear",
+        "submit": "Submit",
+        "back": "戻る",
+        "yes": "Yes",
+        "search": "検索",
+        "advanced_search": "Advanced search",
+        "default_option": "please choose 1 option",
+        "confirmed": "confirmed",
+        "show_detail": "Show Detail",
+        "download_csv": "CSV download",
+        "update": "Update",
+        "add": "Add",
+        "please_choose": "Please choose",
+        "change": "変更",
+        "detail": "Detail",
+        "register": "新規登録",
+        "no_data": "データがありません。"
+    },
+    "user": {
+        "public_address_main": "MetaMaskウォレット",
+        "public_address_sub": "",
+        "email": "メールアドレス",
+        "full_name": "お名前",
+        "position": "肩書",
+        "description": "自己紹介",
+        "status": {
+            "default": "状況",
+            "active": "有効",
+            "deactive": "無効"
+        },
+        "total_contract": "契約実績",
+        "avatar": "アバター",
+        "save": "保存",
+        "back": "保存"
+    },
+    "notice": {
+        "id": "ID",
+        "title": "タイトル",
+        "content": "内容",
+        "dad/artist": "Dad/Artist へ",
+        "release date": "公開日"
+    },
+    "role": {
+        "name": "name",
+        "guard_name": "guard_name",
+        "permission": "permission",
+        "index": "index",
+        "destroy": "destroy",
+        "update": "update",
+        "show": "show",
+        "store": "store"
+    },
+    "offer": {
+        "id": "ID",
+        "dad name": "Dad名",
+        "email address": "メールアドレスへ",
+        "contract term": "契約期間",
+        "price": "販売価格",
+        "Dividend rate": "配当率",
+        "status": "状況",
+        "action": "行動",
+        "name": "名前",
+        "meta mask wallet": "MetaMaskウォレット",
+        "example": "参考例",
+        "comment": "コメント",
+        "dad information": "Dad情報"
+    },
+    "contract": {
+        "search_date": "契約期間",
+        "search_name": "作品名",
+        "search_dad_artist": "Artist名 / Dad名",
+        "search_status": "状況",
+        "offer_id": "オファーID",
+        "image": "画像",
+        "name": "作品名",
+        "duration": "契約期間",
+        "price": "販売価格",
+        "rate": "配当率",
+        "status": "状況",
+        "action": "行動",
+        "detail": "詳細",
+        "img_detail": "作品画像",
+        "receive_amount": "配当金",
+        "receive_amount_explain": "（opensea手数料が減算されした）",
+        "description": "作品説明"
+    },
+    "permission": {
+        "id": "id",
+        "name": "name",
+        "title": "Title"
+    },
+    "mail_template": {
+        "subject": "件名",
+        "content": "内容*"
+    },
+    "text": {
+        "confirm_to_delete": "do you want to delete?"
+    },
+    "navBar.lang": "Language",
+    "app.setting.pagestyle": "Page style setting",
+    "app.setting.pagestyle.light": "Light style",
+    "app.setting.pagestyle.dark": "Dark style",
+    "app.setting.pagestyle.realdark": "RealDark style",
+    "app.setting.themecolor": "Theme Color",
+    "app.setting.navigationmode": "Navigation Mode",
+    "app.setting.content-width": "Content Width",
+    "app.setting.fixedheader": "Fixed Header",
+    "app.setting.fixedsidebar": "Fixed Sidebar",
+    "app.setting.sidemenu": "Side Menu Layout",
+    "app.setting.topmenu": "Top Menu Layout",
+    "app.setting.content-width.fixed": "Fixed",
+    "app.setting.content-width.fluid": "Fluid",
+    "app.setting.othersettings": "Other Settings",
+    "app.setting.weakmode": "Weak Mode",
+    "app.setting.copy": "Copy Setting",
+    "app.setting.loading": "Loading theme",
+    "app.setting.copyinfo": "copy success，please replace defaultSettings in src/models/setting.js",
+    "app.setting.production.hint": "Setting panel shows in development environment only, please manually modify"
+}

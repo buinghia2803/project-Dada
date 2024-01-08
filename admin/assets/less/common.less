@@ -1,0 +1,275 @@
+/*
+|--------------------------------------------------------------------------
+| Common CSS.
+|--------------------------------------------------------------------------
+*/
+.device-pc {
+    &.local-ja {
+        font-family: @font-japanese;
+    }
+
+    h1 {
+        font-size: @fsj-h1-pc;
+        color: @main-color;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: @fsj-h2-pc;
+        color: @main-color;
+        font-weight: 700;
+    }
+}
+
+.device-sp {
+    &.local-en {
+        font-family: @font-english;
+    }
+
+    h1 {
+        font-size: @fse-h1-pc;
+        color: @main-color;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: @fse-h2-pc;
+        color: @main-color;
+        font-weight: 700;
+    }
+}
+
+.d-layout-pd0 {
+    .ant-drawer-body {
+        padding: 0;
+        margin: 0 auto;
+    }
+}
+
+.d-layout-pd0 {
+    .ant-drawer-body {
+        .ant-menu {
+            height: 100vh;
+        }
+    }
+}
+
+.d-layout-sider {
+    background: @bgLayout;
+    color: @colorLayout;
+
+    .ant-menu-inline {
+        border-right: unset;
+    }
+}
+
+.d-layout-header {
+    background: @bgLayout;
+    color: @colorLayout;
+}
+
+.d-layout-menu {
+    background: @bgLayout;
+    color: @colorLayout;
+}
+
+.d-layout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.d-box-avatar-warp {
+    max-width: 160px;
+}
+
+.d-hidden-nav {
+    width: 0;
+    display: none;
+    transition: all 2s linear;
+    transform: translate(0);
+}
+
+.d-card-no-border {
+    border: unset;
+}
+
+.d-head-title {
+    .ant-card-head {
+        border-bottom: unset;
+
+        .ant-card-head-wrapper {
+            display: flex;
+            justify-content: flex-start;
+
+            .ant-card-head-title {
+                padding-bottom: 8px;
+                border-bottom: 1px solid #000000;
+                text-align: left;
+            }
+        }
+    }
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-start {
+    justify-content: flex-start;
+}
+
+.d-table-custom-1 {
+    .ant-table-scroll > .ant-table-body {
+        //overflow-x: auto !important;
+    }
+
+    table {
+        .ant-table-thead {
+            th {
+                font-weight: bold;
+                background: @bgTableTh;
+                color: white;
+
+                &:hover {
+                    background: @bgTableTh !important;
+                    color: white;
+                }
+            }
+        }
+
+        .ant-table-tbody {
+            .d-custom-old {
+                background: @bgTableTrOld;
+            }
+
+            .d-custom-even {
+                background: @bgTableTrEven;
+            }
+        }
+    }
+}
+
+.btn-action {
+    padding: 8px 16px;
+}
+
+.btn-submit-lg,
+.btn-submit {
+    color: #fff;
+    background-color: green;
+
+    &:focus {
+        color: #fff;
+        background-color: green;
+        opacity: 0.8;
+    }
+
+    &:hover {
+        color: #fff;
+        opacity: 0.8;
+        background-color: green;
+    }
+}
+
+.btn-cancel-lg,
+.btn-cancel {
+    color: #fff;
+    background-color: #6c757d;
+
+    &:focus {
+        color: #fff;
+        background-color: #6c757d;
+        opacity: 0.8;
+    }
+
+    &:hover {
+        color: #fff;
+        opacity: 0.8;
+        background-color: #6c757d;
+    }
+}
+
+.btn-warning-lg,
+.btn-warning {
+    color: #fff;
+    background-color: #6c757d;
+
+    &:focus {
+        color: #fff;
+        background-color: #6c757d;
+        opacity: 0.8;
+    }
+
+    &:hover {
+        color: #fff;
+        opacity: 0.8;
+        background-color: #6c757d;
+    }
+}
+
+.btn-info-lg,
+.btn-info {
+    color: #fff;
+    background-color: #138496;
+
+    &:focus {
+        color: #fff;
+        background-color: #138496;
+        opacity: 0.8;
+    }
+
+    &:hover {
+        color: #fff;
+        opacity: 0.8;
+        background-color: #138496;
+    }
+}
+
+.btn-warning-lg,
+.btn-info-lg,
+.btn-cancel-lg,
+.ant-btn-lg,
+.btn-submit-lg {
+    padding: 10px 36px;
+}
+
+.btn-warning,
+.btn-cancel,
+.btn-submit {
+    span {
+        padding: 2px 32px;
+    }
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #ffffff;
+}
+
+.ant-btn-two-chinese-chars > *:not(.anticon) {
+    letter-spacing: 0;
+    margin-right: 0;
+}
+
+.lb-split {
+    border-bottom: 1px dotted black;
+}
+
+.ant-table-empty {
+    .ant-table-placeholder {
+        color: #0c0c0ca6;
+    }
+}
+
+.d-ant-form-item-required {
+    &::after {
+        display: inline-block;
+        margin-right: 4px;
+        color: #f5222d;
+        font-size: 14px;
+        font-family: SimSun, sans-serif;
+        line-height: 1;
+        content: '*';
+    }
+}

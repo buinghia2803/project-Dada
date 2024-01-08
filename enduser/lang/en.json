@@ -1,0 +1,211 @@
+{
+    "navBar": {
+        "lang": "Language"
+    },
+    "layouts": {
+        "usermenu": {
+            "dialog": {
+                "title": "Log out",
+                "content": "Do you want log out"
+            }
+        },
+        "titleLogin": "Login"
+    },
+    "menu": {
+        "home": "Home",
+        "dashboard": {
+            "default": "Dashboard",
+            "welcome": "Welcome",
+            "workplace": "Workplace"
+        },
+        "form": {
+            "default": "Form",
+            "basicform": "Basic Form",
+            "stepform": "Step Form",
+            "advancedform": "Advanced Form"
+        },
+        "user": {
+            "default": "User"
+        },
+        "mail_template": {
+            "default": "Mail Template"
+        },
+        "role": {
+            "default": "Role"
+        },
+        "permission": {
+            "default": "Permission"
+        },
+        "nav1": "Nav 1",
+        "nav2": "Nav 2",
+        "nav3": "Nav 3",
+        "index": "index",
+        "destroy": "destroy",
+        "update": "update",
+        "show": "show"
+    },
+    "module": {
+        "mail_template": "Mail Template"
+    },
+    "messages": {
+        "error": {
+            "failed_to_create": "{name}を作成できませんでした。",
+            "failed_to_update": "{name}を更新できませんでした。",
+            "failed_to_delete": "{name}を削除できませんでした。",
+            "failed_to_delete_user": "{name}は削除できませんでした。",
+            "failed_to_get": "{name}を取得できませんでした。",
+            "failed_to_login": "ログインに失敗しました。",
+            "unmatch_value": "一致するデータが見つかりません。",
+            "bad_email_format": "無効なメール",
+            "unmatch_confirmation_email": "{name}と一致しません。",
+            "unmatch_password": "パスワードが一致しません。",
+            "required": "入力必須です。",
+            "shortRequired": "入力必須です。",
+            "invalid_format": "無効な形式",
+            "numeric": "数字で入力してください。",
+            "more_than": "{name}は{target}以上で入力してください。",
+            "less_than": "{name}は{target}以下で入力してください。",
+            "date_before": "{name}は{target}より前の日付を選択してください。",
+            "date_after": "{name}には開始日以降の日付を選択してください。",
+            "min_max": "{name}は{min}以上、{max}以内で入力してください。",
+            "min": "{name}は{min}字以上で入力してください。",
+            "color_hex": "無効な形式。",
+            "failed_to_sent_mail": "{name}メールを送信できませんでした。",
+            "invalid_url": "無効なURL。",
+            "invalid_url_youtube": "YouTube URLを入力してください。",
+            "invalid_image": "拡張子がjpg、jpeg、png、gifのファイルのみが受け入れられます。",
+            "invalid_range": "{name}は{range}桁で入力してください。",
+            "export_failed": "処理が失敗しました。",
+            "duplicate_code_product": "duplicate code product"
+        },
+        "confirmation": {
+            "delete": "削除しますか？",
+            "deleteMulti": "選択した項目を削除しますか？",
+            "confirm_reject": "差し戻しますか？"
+        },
+        "information": {
+            "created": "正常に作成されました。",
+            "updated": "正常に更新されました。",
+            "deleted": "正常に削除されました。",
+            "deleted_user": "{name}を削除しました。",
+            "login": "正常にログインしました。",
+            "sent_mail_success": "{name}メールを正常に送信しました。"
+        },
+        "warning": {
+            "no_file": "ファイルが選択されていません",
+            "no_title": "タイトルが入力されていません"
+        }
+    },
+    "pages": {
+        "dashboard": {
+            "welcome": {
+                "tips": "Welcome used Ant Design Vue",
+                "show-loading": "Show Loading",
+                "hide-loading": "Hide Loading"
+            }
+        },
+        "form": {
+            "basicform": {
+                "headers": {
+                    "btn1": "Button1",
+                    "customTitle": "Custom Page Title"
+                },
+                "content": "Form pages are used to collect or verify information to users, and basic forms are common in scenarios where there are fewer data items.",
+                "tabs": {
+                    "tab1": "Tab1",
+                    "tab2": "Tab2",
+                    "tab3": "Tab3"
+                }
+            }
+        },
+        "login": {
+            "account": "Account",
+            "password": "Password",
+            "forgot_password": "Forgot password",
+            "auto_login": "Auto login",
+            "submit": "Login",
+            "choose_language": "Choose Language",
+            "help": "Help",
+            "terms": "Terms",
+            "privacy": "Privacy"
+        }
+    },
+    "rule": {
+        "required": "is required"
+    },
+    "common": {
+        "action": "",
+        "new": "Create",
+        "show_all": "Show All",
+        "create": "Create",
+        "edit": "Edit",
+        "delete": "Delete",
+        "cancel": "Cancel",
+        "clear": "Clear",
+        "submit": "Submit",
+        "yes": "Yes",
+        "search": "Search",
+        "advanced_search": "Advanced search",
+        "default_option": "please choose 1 option",
+        "confirmed": "confirmed",
+        "show_detail": "Show Detail",
+        "download_csv": "CSV download",
+        "update": "Update",
+        "add": "Add",
+        "please_choose": "Please choose",
+        "change": "Change",
+        "detail": "Detail",
+        "no_data": "No data"
+    },
+    "user": {
+        "name": "Full Name",
+        "last_name": "Last name",
+        "first_name": "First name",
+        "email": "Email",
+        "roles": "Role",
+        "password": "Password",
+        "confirm_password": "Confirm Password",
+        "phone_number": "Phone number",
+        "organization": "Organization",
+        "type": "Type",
+        "actions": ""
+    },
+    "role": {
+        "name": "name",
+        "guard_name": "guard_name",
+        "permission": "permission",
+        "index": "index",
+        "destroy": "destroy",
+        "update": "update",
+        "show": "show",
+        "store": "store"
+    },
+    "permission": {
+        "id": "id",
+        "name": "name",
+        "title": "Title"
+    },
+    "text": {
+        "confirm_to_delete": "do you want to delete?"
+    },
+    "navBar.lang": "Language",
+    "app.setting.pagestyle": "Page style setting",
+    "app.setting.pagestyle.light": "Light style",
+    "app.setting.pagestyle.dark": "Dark style",
+    "app.setting.pagestyle.realdark": "RealDark style",
+    "app.setting.themecolor": "Theme Color",
+    "app.setting.navigationmode": "Navigation Mode",
+    "app.setting.content-width": "Content Width",
+    "app.setting.fixedheader": "Fixed Header",
+    "app.setting.fixedsidebar": "Fixed Sidebar",
+    "app.setting.sidemenu": "Side Menu Layout",
+    "app.setting.topmenu": "Top Menu Layout",
+    "app.setting.content-width.fixed": "Fixed",
+    "app.setting.content-width.fluid": "Fluid",
+    "app.setting.othersettings": "Other Settings",
+    "app.setting.weakmode": "Weak Mode",
+    "app.setting.copy": "Copy Setting",
+    "app.setting.loading": "Loading theme",
+    "app.setting.copyinfo": "copy success，please replace defaultSettings in src/models/setting.js",
+    "app.setting.production.hint": "Setting panel shows in development environment only, please manually modify"
+}
